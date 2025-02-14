@@ -1,100 +1,142 @@
-# Web Content Analyzer with Gemini
+Web Content Analyzer with Gemini - Server
 
-Este projeto é uma aplicação demonstrativa desenvolvida para evidenciar habilidades em automação web, integração avançada com IA (usando o modelo Gemini da Google Generative AI) e engenharia de dados. Ele foi criado especialmente para a vaga de Programador(a) Python e pode ser usado para extrair, analisar e salvar o conteúdo de páginas web.
+Este projeto é uma aplicação demonstrativa desenvolvida para evidenciar habilidades em automação web, integração avançada com IA (utilizando o modelo Gemini da Google Generative AI) e engenharia de dados.  
+A API foi criada especialmente para a vaga de **Programador(a) Python** e permite extrair, analisar e salvar o conteúdo textual de páginas web.
 
 ---
 
-## 📌 Visão Geral
+## Visão Geral
 
 A aplicação é construída em **Flask** e expõe uma série de endpoints que permitem:
 
-✅ **Validar uma URL:** Verificar se a URL informada está no formato correto.
-
-✅ **Analisar uma Página Web:** Extrair e limpar o conteúdo textual da página (removendo scripts, estilos, etc.) e gerar um resumo (**snippet**) junto com métricas de análise (como contagem de links, títulos, parágrafos, etc.).
-
-✅ **Interagir com um Chat Baseado em IA:** Permitir que o usuário faça perguntas sobre o conteúdo extraído e receba respostas geradas pelo modelo **Gemini**.
-
-✅ **Salvar o Conteúdo Extraído:** Oferecer a opção de baixar o conteúdo textual limpo em vários formatos (**TXT, CSV, PDF, JSON**).
+- **Validar uma URL:** Verifica se a URL informada está no formato correto.
+- **Analisar uma Página Web:** Realiza o scraping do conteúdo HTML, remove scripts, estilos e outros elementos indesejados, retornando um conteúdo textual limpo (snippet) e métricas de análise (contagem de links, títulos, parágrafos, etc.).
+- **Interagir com um Chat Baseado em IA:** Permite que o usuário faça perguntas sobre o conteúdo extraído e receba respostas geradas pelo modelo **Gemini**.
+- **Salvar o Conteúdo Extraído:** Oferece a opção de exportar o conteúdo textual limpo em formatos como **TXT, CSV, PDF** ou **JSON**.
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-- **🔍 Validação de URL** - Verifica se a URL possui o formato correto antes de processá-la.
-- **📜 Extração de Conteúdo** - Utiliza as bibliotecas `requests` e `BeautifulSoup` para fazer o scraping e limpar o HTML da página.
-- **📊 Análise Estrutural** - Conta elementos importantes da página, como links, títulos, parágrafos, tabelas, imagens e listas.
-- **🤖 Integração com IA** - Usa o modelo **Gemini** para gerar respostas e sugestões baseadas no conteúdo extraído.
-- **💾 Geração de Arquivos** - Permite salvar o conteúdo extraído em formatos **TXT, CSV, PDF** ou **JSON** utilizando a biblioteca `FPDF`.
-- **🌍 CORS Configurado** - Configurado para permitir requisições provenientes do front-end (exemplo: `http://localhost:5173`).
+- **Validação de URL:**  
+  Verifica se a URL possui o formato correto antes de processá-la.
+
+- **Extração de Conteúdo:**  
+  Utiliza as bibliotecas `requests` e `BeautifulSoup` para realizar o scraping e limpar o HTML da página.
+
+- **Análise Estrutural:**  
+  Conta elementos importantes da página, como links, títulos, parágrafos, tabelas, imagens e listas.
+
+- **Integração com IA:**  
+  Utiliza o modelo **Gemini** da Google Generative AI para gerar respostas e sugestões com base no conteúdo extraído.
+
+- **Geração de Arquivos:**  
+  Permite salvar o conteúdo extraído em formatos **TXT, CSV, PDF** ou **JSON** usando a biblioteca `FPDF` (para PDF) e outras ferramentas de formatação.
+
+- **Configuração de CORS:**  
+  Configurado para permitir requisições provenientes do front-end (exemplo: `https://front-vaga-programador-python.vercel.app`).
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
-- **🖥️ Flask** - Framework web para criação da API.
-- **🔗 Flask-CORS** - Para gerenciamento de CORS.
-- **🌐 Requests** - Para fazer requisições HTTP.
-- **📄 BeautifulSoup** - Para parsing e extração de dados do HTML.
-- **📑 FPDF** - Para gerar arquivos PDF.
-- **🧠 Google Generative AI (Gemini)** - Para geração de conteúdo via IA.
-- **⚙️ Python-dotenv** - Para carregar variáveis de ambiente a partir de um arquivo `.env`.
+- **Flask** – Framework web para criação da API.
+- **Flask-CORS** – Para gerenciamento de CORS.
+- **Requests** – Para fazer requisições HTTP.
+- **BeautifulSoup** – Para parsing e extração de dados do HTML.
+- **FPDF** – Para gerar arquivos PDF.
+- **Google Generative AI (Gemini)** – Para geração de conteúdo via IA.
+- **Python-dotenv** – Para carregar variáveis de ambiente a partir de um arquivo `.env`.
 
 ---
 
-## 📥 Instalação e Execução
+## Instalação e Execução
 
-### 1️⃣ Clone o repositório:
+### 1. Clone o Repositório
+
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_REPOSITORIO>
+git clone https://github.com/IgorMacedo4/Server-Vaga-Programador-Python.git
+cd Server-Vaga-Programador-Python
 ```
 
-### 2️⃣ Crie e ative um ambiente virtual:
+### 2. Crie e Ative um Ambiente Virtual
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate  # Para Linux/Mac
 venv\Scripts\activate     # Para Windows
 ```
 
-### 3️⃣ Instale as dependências:
+### 3. Instale as Dependências
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Configure as variáveis de ambiente:
+### 4. Configure as Variáveis de Ambiente
+
 Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
-```env
+
+```
 GOOGLE_API_KEY=your_google_api_key_here
 FLASK_ENV=development
 ```
 
-### 5️⃣ Inicie o servidor:
+### 5. Inicie o Servidor
+
 ```bash
 python app.py
 ```
-O servidor estará disponível em **[http://localhost:5000](http://localhost:5000)**.
+
+O servidor ficará disponível em:
+[http://localhost:5000](http://localhost:5000)
 
 ---
 
-## 📡 Endpoints da API
+## Endpoints da API
 
-### 🔹 **GET /validate?url=<url>**
-📌 Valida o formato da URL informada.
+### **GET /validate?url=<url>**
 
-### 🔹 **POST /analyze**
-📌 Corpo esperado (**JSON**):
+**Descrição:**
+Valida se a URL informada está no formato correto.
+
+**Exemplo:**
+
+```bash
+GET http://localhost:5000/validate?url=https://www.exemplo.com
+```
+
+**Resposta Exemplo:**
+
+```json
+{ "valid": true }
+```
+
+### **POST /analyze**
+
+**Corpo Esperado (JSON):**
+
+```json
+{ "url": "https://www.exemplo.com" }
+```
+
+**Resposta Exemplo:**
+
 ```json
 {
-  "url": "https://www.exemplo.com"
+  "snippet": "Resumo do conteúdo...",
+  "full_content": "Conteúdo textual limpo extraído da página...",
+  "analysis": { "links": 10, "titulos": 3, "paragrafos": 20 },
+  "suggestions": ["- 10 links encontrados", "- 3 títulos e cabeçalhos"],
+  "gemini_suggestions": "Sugestão 1...\nSugestão 2...",
+  "execution_time": 0.45
 }
 ```
-📌 Retorna:
-- Um snippet do conteúdo textual limpo da página.
-- Métricas de análise (**links, títulos, parágrafos, etc.**).
-- Sugestões geradas pelo modelo **Gemini**.
 
-### 🔹 **POST /ask**
-📌 Corpo esperado (**JSON**):
+### **POST /ask**
+
+**Corpo Esperado (JSON):**
+
 ```json
 {
   "url": "https://www.exemplo.com",
@@ -102,10 +144,20 @@ O servidor estará disponível em **[http://localhost:5000](http://localhost:500
   "data_type": "tudo"
 }
 ```
-📌 Retorna a resposta do modelo **Gemini** para a pergunta feita com base no conteúdo extraído.
 
-### 🔹 **POST /save**
-📌 Corpo esperado (**JSON**):
+**Resposta Exemplo:**
+
+```json
+{
+  "question": "Sua pergunta",
+  "response": "Resposta gerada pelo modelo Gemini..."
+}
+```
+
+### **POST /save**
+
+**Corpo Esperado (JSON):**
+
 ```json
 {
   "content": "Conteúdo extraído",
@@ -113,22 +165,22 @@ O servidor estará disponível em **[http://localhost:5000](http://localhost:500
   "filename_base": "output"
 }
 ```
-📌 Inicia o download do conteúdo no formato especificado.
 
 ---
 
-## 📢 Considerações Finais
+## Deploy
 
-Esta aplicação demonstra a integração de técnicas de **web scraping** com a capacidade de gerar respostas via **IA**, além de possibilitar a exportação dos dados extraídos em múltiplos formatos.
+**Repositório Git:**
+[https://github.com/IgorMacedo4/Server-Vaga-Programador-Python.git](https://github.com/IgorMacedo4/Server-Vaga-Programador-Python.git)
 
-Foi desenvolvida para atender às exigências de uma vaga de **Programador(a) Python** com experiência em **automação web** e aplicações avançadas com IA.
-
-📌 **Desenvolvido por Igor Macedo** para a vaga de **Programador(a) Python**. Este demonstrativo foi enviado exclusivamente para **thomas.maia@abladvogados.com**.
+**Deploy na Render:**
+[https://server-vaga-programador-python.onrender.com](https://server-vaga-programador-python.onrender.com)
 
 ---
 
-## 🎯 Como Usar
+## Considerações Finais
 
-- **Clone o repositório** e siga as instruções de instalação para executar o servidor localmente.
-- **Interaja com os endpoints** usando o front-end (que será desenvolvido separadamente).
+Esta aplicação demonstra a integração de técnicas de web scraping com a geração de respostas via IA e a exportação dos dados extraídos em múltiplos formatos.
+
+Desenvolvido por Igor Macedo para a vaga de Programador(a) Python.
 
