@@ -24,12 +24,13 @@ genai.configure(api_key=GOOGLE_API_KEY)
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": ["http://localhost:5173"],  # Adicione seu domínio React
+        "origins": ["http://localhost:5173", "https://front-vaga-programador-python.vercel.app"],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"],
         "supports_credentials": True
     }
 })
+
 
 class WebContentAnalyzer:
     def __init__(self):
