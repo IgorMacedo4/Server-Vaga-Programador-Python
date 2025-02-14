@@ -1,0 +1,17 @@
+# Ambiente virtual
+venv/
+*.venv/
+
+# Arquivo de variáveis de ambiente
+.env
+
+# Arquivos gerados pelo Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configurações de IDEs/editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

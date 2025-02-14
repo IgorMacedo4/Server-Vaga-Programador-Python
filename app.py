@@ -13,13 +13,12 @@ from urllib.parse import urlparse
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# Carregar variáveis de ambiente do .env
 load_dotenv()
+
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 if not GOOGLE_API_KEY:
-    raise Exception("GOOGLE_API_KEY não encontrada no arquivo .env.")
+    raise Exception("GOOGLE_API_KEY não encontrada no ambiente.")
 
-# Configurar a API do Gemini
 genai.configure(api_key=GOOGLE_API_KEY)
 
 app = Flask(__name__)
